@@ -61,10 +61,49 @@ hist(d)
 ```
 
 ##2.g-formula
+
+$$
+g^* = f(a) = f(as,mn,pb) = f(as|mn,pb)*f(mn|pb)*f(pb) $$
+
+$$E[Y_g*] = \int_a \int_c E(Y|A,C) * f^*(a)*f(c) dcda$$
+
+
 ```{r}
 
+ipw = function(x,df,form){
+# the numerator
+mod_num <- lm(x ~ 1, data = df)
+
+num <- dnorm(x = x, # treatment 
+             mean = fitted.values(mod_num), # fitted values
+             sd = summary(mod_num)$sigma) # model sigma
+# the demonimator
+mod_den <- lm(formula = form, data = df)
+
+den <- dnorm(x = x, # treatment variable
+             mean = fitted.values(mod_den), # fitted values
+             sd = summary(mod_den)$sigma)
+ipw_s = num/den
+return(ipw_s)
+}
 
 ```
+
+```{r}
+mod_num <- lm(x ~ 1, data = df)
+
+num <- dnorm(x = x, # treatment 
+             mean = fitted.values(mod_num), # fitted values
+             sd = summary(mod_num)$sigma) # model sigma
+# the demonimator
+mod_den <- lm(formula = form, data = df)
+
+den <- dnorm(x = x, # treatment variable
+             mean = fitted.values(mod_den), # fitted values
+             sd = summary(mod_den)$sigma)
+ipw_s = num/den
+```
+
 
 
 ##3.marginal structual model
