@@ -89,6 +89,7 @@ return(ipw_s)
 
 ```
 
+#explanation of inverse propensity score function
 ```{r}
 mod_num <- lm(x ~ 1, data = df)
 
