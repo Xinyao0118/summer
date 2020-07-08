@@ -1,0 +1,49 @@
+---
+title: "0708-1"
+author: "uni:xw2598"
+date: "7/8/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Single continuous outcome
+
+##Structure & Relationship
+
+Outcome : Y
+Exposure : A,B,C
+Covariates : D,E,F,G
+
+relationship:
+
+$$
+E(Y|A,B,C,D,F,G,H) \sim N(\mu,\sigma)$$
+ 
+$$E(A|D,F,G,H) \sim N(\mu,\sigma) \\$$
+$$E(B|D,F,G,H) \sim N(\mu,\sigma) \\$$
+$$E(c|D,F,G,H) \sim N(\mu,\sigma) \\$$
+
+$$E(D) \sim bin(0.7) \\$$
+$$E(F) \sim N(30,5) \\$$
+$$E(G) \sim N(120,5) \\$$
+$$E(H) \sim Poi(20)
+$$
+
+##1.First: try with small sample
+```{r}
+n = 1000
+
+
+
+
+
+
+```
+
+
+
+
+
